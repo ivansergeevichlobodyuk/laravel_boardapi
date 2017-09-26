@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/api/boards', 'Board@getBoardList');
+Route::get('/api/boards/{board}', 'Board@getBoardItem');
+Route::post('/api/boards/', 'Board@saveBoardItem');
+
+Route::get('/api/tasks', 'TaskController@getBoardList');
+Route::get('/api/tasks/{task}', 'TaskController@getBoardItem');
+Route::post('/api/tasks/', 'TaskController@saveBoardItem');
