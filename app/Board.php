@@ -21,14 +21,19 @@ class Board extends Model
     /**
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = ['name','count'];
+
+    /**
+     * @var bool
+     */
+    public $timestamps = false;
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function task()
     {
-        return $this->hasMany('App\Task');
+        return $this->hasMany('App\Task','board');
     }
 
 }

@@ -17,8 +17,9 @@ Route::get('/', function () {
 
 Route::get('/api/boards', 'Board@getBoardList');
 Route::get('/api/boards/{board}', 'Board@getBoardItem');
-Route::post('/api/boards/', 'Board@saveBoardItem');
+Route::post('/api/boards/', 'Board@addBoardItem');
 
-Route::get('/api/tasks', 'TaskController@getBoardList');
-Route::get('/api/tasks/{task}', 'TaskController@getBoardItem');
-Route::post('/api/tasks/', 'TaskController@saveBoardItem');
+Route::get('/api/tasks', 'Task@getBoardList');
+Route::get('/api/tasks/{task}', 'Task@getBoardItem');
+Route::patch('/api/tasks/{task}', 'Task@updateBoardItem');
+Route::post('/api/tasks/', 'Task@saveBoardItem');

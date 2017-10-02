@@ -25,7 +25,7 @@ class TaskSchema extends SchemaProvider
     /**
      * @var string
      */
-   protected $resourceType = 'task';
+   protected $resourceType = 'tasks';
 
     /**
      * @param object $task
@@ -38,6 +38,8 @@ class TaskSchema extends SchemaProvider
     }
 
     /**
+     * Gets attributes
+     *
      * @param object $task
      * @return array
      */
@@ -46,16 +48,10 @@ class TaskSchema extends SchemaProvider
 
         /** @var Author $author */
         return [
-            'task_name' => $task->taksName,
-            'task_title' => $task->taskTitle,
-            'task_intro' => $task->taskIntro
+            'task-name' => $task->task_name,
+            'task-title' => $task->task_title,
+            'intro-text' => $task->task_intro
         ];
     }
 
-//    public function getRelationships($board, $isPrimary, array $includeRelationships)
-//    {
-//        return [
-//            'task' => [self::DATA => $board->task]
-//        ];
-//    }
 }

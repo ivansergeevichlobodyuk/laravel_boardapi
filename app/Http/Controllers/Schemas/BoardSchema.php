@@ -25,7 +25,7 @@ class BoardSchema extends SchemaProvider
     /**
      * @var string
      */
-    protected $resourceType = 'board';
+    protected $resourceType = 'boards';
 
     /**
      * @param object $board
@@ -48,13 +48,24 @@ class BoardSchema extends SchemaProvider
         /** @var Author $author */
         return [
             'name' => $board->name,
+            'count' => $board->count
         ];
     }
 
-    public function getRelationships($board, $isPrimary, array $includeRelationships)
+    /**
+     * @param object $board
+     * @param bool $isPrimary
+     * @param array $includeRelationships
+     * @return array
+     */
+    public function getRelationships($board, $isPrimary, array $includeRelationships )
     {
         return [
-            'task' => [self::DATA => $board->task]
+            'tasks' => [
+                self::DATA => $board->task,
+                self::SHOW_SELF => true
+            ],
         ];
     }
+
 }

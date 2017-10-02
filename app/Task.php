@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property Board $board
  * @property int $id
- * @property int $board_id
+ * @property int $board
  * @property string $task_name
  * @property string $task_title
  * @property string $task_intro
@@ -19,7 +19,12 @@ class Task extends Model
     /**
      * @var array
      */
-    protected $fillable = ['board_id', 'task_name', 'task_title', 'task_intro', 'task_full_text', 'task_type'];
+    protected $fillable = ['board', 'task_name', 'task_title', 'task_intro', 'task_full_text', 'task_type'];
+
+    /**
+     * @var bool
+     */
+    public $timestamps = false;
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

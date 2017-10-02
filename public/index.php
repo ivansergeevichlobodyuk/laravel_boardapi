@@ -46,6 +46,9 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 | and wonderful application we have prepared for them.
 |
 */
+header("Access-Control-Allow-Origin: http://localhost:4200");
+header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+header('Access-Control-Allow-Methods: GET, POST, PUT, PATCH');
 
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
