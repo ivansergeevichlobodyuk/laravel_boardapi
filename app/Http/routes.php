@@ -22,4 +22,4 @@ Route::post('/api/boards/', 'Board@addBoardItem');
 Route::get('/api/tasks', 'Task@getBoardList');
 Route::get('/api/tasks/{task}', 'Task@getBoardItem');
 Route::patch('/api/tasks/{task}', 'Task@updateBoardItem');
-Route::post('/api/tasks/', 'Task@saveBoardItem');
+Route::post('/api/tasks/', 'Task@saveTaskItem');

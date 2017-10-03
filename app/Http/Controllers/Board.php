@@ -48,8 +48,26 @@ class Board extends Controller
             $board->$column = $value;
         }
         $board->save();
-        $encode = Encoder::instance([BoardModel::class      => BoardSchema::class]);
+        $encode = Encoder::instance([BoardModel::class => BoardSchema::class]);
         return $encode->encodeData($board);
+    }
+
+    /**
+     * Gets board item
+     *
+     * @param Request $request
+     * @param $board
+     * @return string
+     */
+    public function getBoardItem( Request $request, $board ){
+        $data = new BoardModel( );
+        $item = $data->find( $board );
+        $encode = Encoder::instance([BoardModel::class      => BoardSchema::class,
+            Task::class           => TaskSchema::class]);
+        $params = new EncodingParameters(
+            ['tasks']
+        );
+        return $encode->encodeData($item, $params);
     }
 
 }
